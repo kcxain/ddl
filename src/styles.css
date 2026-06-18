@@ -79,7 +79,7 @@ main {
   margin: 0;
   color: var(--ink);
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
 }
@@ -103,7 +103,7 @@ footer {
 .daysLine strong {
   color: var(--clay);
   font-size: clamp(104px, 18vw, 220px);
-  font-weight: 700;
+  font-weight: 800;
   font-variant-numeric: tabular-nums lining-nums;
   line-height: 0.82;
   letter-spacing: 0;
