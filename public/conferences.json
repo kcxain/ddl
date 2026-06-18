@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-06-18T05:44:42.871Z",
+  "source": "https://github.com/ccfddl/ccf-deadlines",
+  "count": 1,
+  "conferences": [
+    {
+      "id": "aaai27",
+      "title": "AAAI",
+      "description": "AAAI Conference on Artificial Intelligence",
+      "aliases": [
+        "AAAI",
+        "aaai",
+        "AAAI Conference on Artificial Intelligence",
+        "aaai27",
+        "AAAI 2027",
+        "AAAI27",
+        "AAAI Conference on Artificial Intelligence 2027"
+      ],
+      "sub": "AI",
+      "rank": {
+        "ccf": "A",
+        "core": "A*",
+        "thcpl": "A"
+      },
+      "dblp": "aaai",
+      "year": 2027,
+      "deadline": "2026-07-27 23:59:59",
+      "abstractDeadline": "2026-07-20 23:59:59",
+      "timezone": "UTC-12",
+      "timeline": [
+        {
+          "kind": "submission",
+          "abstractDeadline": "2026-07-20 23:59:59",
+          "deadline": "2026-07-27 23:59:59",
+          "timezone": "UTC-12"
+        }
+      ],
+      "date": "February 16-23, 2027",
+      "place": "Montréal, Québec, Canada",
+      "link": "https://aaai.org/conference/aaai/aaai-27/",
+      "source": "ccfddl:conference/AI/aaai.yml"
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+:root {
+  color-scheme: light;
+  --bg: #faf9f5;
+  --surface: #ffffff;
+  --ink: #1f1e1d;
+  --ink-soft: #68655f;
+  --ink-muted: #969188;
+  --line: rgba(31, 30, 29, 0.09);
+  --clay: #c96442;
+  --clay-soft: rgba(201, 100, 66, 0.48);
+  --green: #4f8f67;
+  --serif: "Tiempos Text", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Songti SC", "Noto Serif CJK SC", serif;
+
+  font-family: var(--serif);
+  font-feature-settings: "onum", "pnum";
+  background: var(--bg);
+  color: var(--ink);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+main {
+  width: min(1480px, calc(100vw - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(10px, 1.6vh, 20px) 0;
+  display: grid;
+  align-content: center;
+}
+
+.panelStack {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.82fr) minmax(420px, 680px);
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 30px);
+}
+
+.countdownStack {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.countdownPanel,
+.missingPanel {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
+  min-width: 0;
+  min-height: clamp(280px, 34vh, 430px);
+  gap: clamp(4px, 0.7vh, 8px);
+  padding: clamp(10px, 1.5vw, 20px) clamp(18px, 2.6vw, 34px) clamp(10px, 1.5vw, 18px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow:
+    0 1px 0 rgba(31, 30, 29, 0.02),
+    0 12px 40px -16px rgba(31, 30, 29, 0.08);
+}
+
+.panelTop h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.panelTop,
+.daysLine,
+.subCountdown,
+footer {
+  min-width: 0;
+}
+
+.daysLine {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  align-self: start;
+  gap: clamp(8px, 1.4vw, 16px);
+  margin: 0 0 clamp(10px, 2vh, 22px);
+}
+
+.daysLine strong {
+  color: var(--clay);
+  font-size: clamp(104px, 18vw, 220px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 0.82;
+  letter-spacing: 0;
+}
+
+.daysLine span {
+  color: var(--ink-soft);
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1;
+}
+
+.subCountdown {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  width: 100%;
+  gap: clamp(6px, 1vw, 12px);
+}
+
+.subCountdown div {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  gap: 6px;
+}
+
+.subCountdown strong {
+  color: var(--ink);
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.subCountdown span {
+  color: var(--ink-muted);
+  font-size: clamp(17px, 1.8vw, 24px);
+}
+
+.deadlineProgress {
+  width: 100%;
+  height: 2px;
+  margin-top: clamp(10px, 1.4vh, 16px);
+  border-radius: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.deadlineProgress > div {
+  height: 100%;
+  width: 0;
+  background: var(--clay);
+  transition: width 240ms ease;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 18px;
+  row-gap: 8px;
+  margin-top: clamp(8px, 1vh, 12px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.deadlineTime {
+  flex: 0 0 auto;
+  color: var(--ink);
+  font-size: clamp(18px, 1.75vw, 28px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.deadlineTime:only-child {
+  margin-left: auto;
+}
+
+.deadlineTime + .deadlineTime {
+  margin-left: auto;
+  color: var(--clay);
+}
+
+.compactList {
+  display: grid;
+  gap: 6px;
+}
+
+.compactConference {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.compactConference span,
+.compactConference strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: clamp(19px, 2vw, 30px);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.compactConference strong {
+  color: var(--clay);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+.calendarPanel {
+  width: 100%;
+  min-width: 0;
+}
+
+.calendarGrid {
+  width: min(100%, 680px);
+  min-width: 0;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.calendarWeekday {
+  display: grid;
+  place-items: center;
+  height: 24px;
+  color: var(--ink-muted);
+  font-size: clamp(14px, 1.45vw, 20px);
+  font-weight: 600;
+}
+
+.calendarMonthBand {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 2px 4px;
+  color: var(--ink-muted);
+  font-size: clamp(12px, 1.25vw, 16px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.calendarMonthBand::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.calendarCell {
+  container-type: inline-size;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding: 2px;
+  border-radius: 6px;
+  background: rgba(31, 30, 29, 0.065);
+  color: transparent;
+  overflow: hidden;
+  font-weight: 700;
+}
+
+.calendarCell > span {
+  max-width: 88%;
+  color: inherit;
+  font-size: clamp(9px, 27cqw, 36px);
+  line-height: 0.82;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transform: none;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.calendarCell.longLabel > span {
+  max-width: 92%;
+  font-size: clamp(8px, 20cqw, 24px);
+}
+
+.calendarCell.empty {
+  visibility: hidden;
+}
+
+.calendarCell.today {
+  background: var(--green);
+  color: #fbfaf6;
+}
+
+.calendarCell.target {
+  background: var(--clay);
+  color: #fffaf4;
+}
+
+.calendarCell.abstractTarget {
+  background: var(--clay-soft);
+}
+
+.missingPanel {
+  align-content: center;
+}
+
+.missingPanel h1,
+.missingPanel p {
+  margin: 0;
+}
+
+.missingPanel h1 {
+  font-size: clamp(36px, 7vw, 84px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.missingPanel p {
+  max-width: 42ch;
+  color: var(--ink-soft);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.55;
+}
+
+@media (max-width: 920px) {
+  main {
+    width: calc(100vw - 18px);
+    padding: 10px 0 20px;
+    align-content: start;
+  }
+
+  .panelStack {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .countdownPanel,
+  .missingPanel {
+    min-height: auto;
+    padding: 16px 18px 14px;
+    border-radius: 8px;
+  }
+
+  .panelTop h1 {
+    font-size: clamp(34px, 9vw, 56px);
+  }
+
+  .daysLine strong {
+    font-size: clamp(92px, 28vw, 170px);
+  }
+
+  .subCountdown strong {
+    font-size: clamp(28px, 8vw, 44px);
+  }
+
+  .subCountdown span {
+    font-size: clamp(15px, 4vw, 20px);
+  }
+
+  .deadlineTime {
+    font-size: clamp(21px, 5.8vw, 32px);
+  }
+
+  .calendarGrid {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .deadlineTime + .deadlineTime {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  main {
+    width: min(372px, calc(100vw - 18px));
+    margin: 0 0 0 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .countdownPanel,
+  .missingPanel {
+    padding: 12px 12px 10px;
+  }
+
+  .subCountdown {
+    gap: 3px;
+  }
+
+  .subCountdown div {
+    gap: 4px;
+  }
+
+  .subCountdown strong {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+
+  .subCountdown span {
+    font-size: clamp(12px, 3.5vw, 15px);
+  }
+
+  .deadlineTime {
+    font-size: clamp(19px, 5.2vw, 25px);
+  }
+
+  .calendarCell {
+    border-radius: 5px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #1a1a19;
+    --surface: #232220;
+    --ink: #f4f1ea;
+    --ink-soft: #b3afa5;
+    --ink-muted: #807d75;
+    --line: rgba(244, 241, 234, 0.08);
+    --clay: #e0866a;
+    --clay-soft: rgba(224, 134, 106, 0.48);
+    --green: #6ca77c;
+  }
+
+  .countdownPanel,
+  .missingPanel {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.02),
+      0 12px 40px -16px rgba(0, 0, 0, 0.5);
+  }
+
+  .compactConference {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .calendarCell {
+    background: rgba(244, 241, 234, 0.08);
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "ddl-countdown",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build.mjs && python3 -m http.server 5173 --directory dist",
+    "build": "node scripts/build.mjs",
+    "preview": "python3 -m http.server 4173 --directory dist",
+    "sync:ccfddl": "node scripts/sync-ccfddl.mjs",
+    "check:data": "node scripts/check-data.mjs"
+  }
+}

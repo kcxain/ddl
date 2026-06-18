@@ -1,0 +1,9 @@
+{
+  "ACL": "conference/AI/acl.yml",
+  "ICLR": "conference/AI/iclr.yml",
+  "ICML": "conference/AI/icml.yml",
+  "NeurIPS": "conference/AI/nips.yml",
+  "EMNLP": "conference/AI/emnlp.yml",
+  "AAAI": "conference/AI/aaai.yml",
+  "DAC": "conference/DS/dac.yml"
+}
