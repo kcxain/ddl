@@ -385,10 +385,6 @@ footer {
     width: 100%;
     margin-left: 0;
   }
-
-  .deadlineTime + .deadlineTime {
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 520px) {
