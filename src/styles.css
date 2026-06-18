@@ -378,11 +378,15 @@ footer {
   }
 
   .deadlineTime {
-    font-size: clamp(15px, 3.8vw, 20px);
+    font-size: clamp(21px, 5.8vw, 32px);
   }
 
   .calendarGrid {
     width: 100%;
+    margin-left: 0;
+  }
+
+  .deadlineTime + .deadlineTime {
     margin-left: 0;
   }
 }
@@ -417,7 +421,7 @@ footer {
   }
 
   .deadlineTime {
-    font-size: clamp(13px, 3.6vw, 17px);
+    font-size: clamp(19px, 5.2vw, 25px);
   }
 
   .calendarCell {
