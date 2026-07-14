@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T05:48:18.670Z",
+  "generatedAt": "2026-07-14T05:09:35.011Z",
   "source": "https://github.com/ccfddl/ccf-deadlines",
   "count": 1,
   "conferences": [
@@ -24,14 +24,14 @@
       },
       "dblp": "aaai",
       "year": 2027,
-      "deadline": "2026-07-27 23:59:59",
-      "abstractDeadline": "2026-07-20 23:59:59",
+      "deadline": "2026-07-28 23:59:59",
+      "abstractDeadline": "2026-07-21 23:59:59",
       "timezone": "UTC-12",
       "timeline": [
         {
           "kind": "submission",
-          "abstractDeadline": "2026-07-20 23:59:59",
-          "deadline": "2026-07-27 23:59:59",
+          "abstractDeadline": "2026-07-21 23:59:59",
+          "deadline": "2026-07-28 23:59:59",
           "timezone": "UTC-12"
         }
       ],
